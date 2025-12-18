@@ -1,2 +1,2 @@
 ADMIN:
-pfa@fsb.ucar.tn   fsb1234
+Credentials are defined in `database/tayarti.sql` (avoid committing real passwords to public repos).

@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/dbconnection.php';
 
 
 class Vol
@@ -7,7 +8,7 @@ class Vol
 
 	function __construct()
 	{
-		$this->conn = new mysqli("localhost", "root", "", "tayarti");
+		$this->conn = tayarti_db();
 	}
 
 	function vol_insert($vdepart, $varrivee, $date_depart, $npalace, $prix, $statut)

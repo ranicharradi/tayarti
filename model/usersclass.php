@@ -1,13 +1,14 @@
 <?php
 session_start();
 
+require_once __DIR__ . '/dbconnection.php';
 
 class User
 {
 
 	function __construct()
 	{
-		$this->conn = new mysqli("localhost", "root", "", "tayarti");
+		$this->conn = tayarti_db();
 	}
 
 	function user_insert($nom, $prenom, $mail, $password, $statut)
@@ -69,7 +70,7 @@ class User
 	}
 	function user_update($id, $nom, $prenom, $mail, $password)
 	{
-		mysqli_query($this->conn, "UPDATE `users` SET `nom` = '$nom', `prenom` = '$prenom', `email` = '$mail' , `password` = '$password' WHERE `id_user` = '$id'") or die(mysqli_error());
+		mysqli_query($this->conn, "UPDATE `users` SET `nom` = '$nom', `prenom` = '$prenom', `email` = '$mail' , `password` = '$password' WHERE `id_user` = '$id'") or die(mysqli_error($this->conn));
 		header("location: ../view/login.php");
 	}
 	function user_show($id)

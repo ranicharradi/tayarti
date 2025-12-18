@@ -1,13 +1,14 @@
 <?php
 //include('dbconnection.php');
 
+require_once __DIR__ . '/dbconnection.php';
 
 class Reservation
 {
 
 	function __construct()
 	{
-		$this->conn = new mysqli("localhost", "root", "", "tayarti");
+		$this->conn = tayarti_db();
 	}
 
 	function reservation_insert($id, $latest_id, $id_user, $date)

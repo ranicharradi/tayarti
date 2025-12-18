@@ -1,12 +1,13 @@
 <?php
 
+require_once __DIR__ . '/dbconnection.php';
 
 class Passager
 {
 
 	function __construct()
 	{
-		$this->conn = new mysqli("localhost", "root", "", "tayarti");
+		$this->conn = tayarti_db();
 	}
 
 	function passager_insert($nom, $prenom, $age, $pays, $adresse, $tele, $email, $passeport)
